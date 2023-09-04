@@ -88,7 +88,7 @@ menuItems.forEach(item => {
 });
 
     </script>
-
+    
     <script src="https://kit.fontawesome.com/5b8d4d0297.js" crossorigin="anonymous"></script>
 
 </body>

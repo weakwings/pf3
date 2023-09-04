@@ -1,3 +1,10 @@
+<?php
+include '../../../handle_db/connection.php';
+
+$query = "SELECT id, name, email, address, dbirth, dclass FROM teacher";
+$result = $mysqli->query($query);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,18 +28,31 @@
         </div>
         <br>
         <table class="w-full border border-gray-300 rounded-md">
-        <thead class="bg-gray-100">
-            <tr>
-                <th class="px-2 py-1 border-r border-gray-300">#</th>
-                <th class="px-2 py-1 border-r border-gray-300">Name</th>
-                <th class="px-2 py-1 border-r border-gray-300">Email</th>
-                <th class="px-2 py-1 border-r border-gray-300">Address</th>
-                <th class="px-2 py-1 border-r border-gray-300">Date of Birth</th>
-                <th class="px-2 py-1 border-r border-gray-300">Designated Class</th>
-                <th class="px-2 py-1">Action</th>
-            </tr>
-        </thead>
-    </table>
+            <thead class="bg-gray-100">
+                <tr>
+                    <th class="px-2 py-1 border-r border-gray-300">#</th>
+                    <th class="px-2 py-1 border-r border-gray-300">Name</th>
+                    <th class="px-2 py-1 border-r border-gray-300">Email</th>
+                    <th class="px-2 py-1 border-r border-gray-300">Address</th>
+                    <th class="px-2 py-1 border-r border-gray-300">Date of Birth</th>
+                    <th class="px-2 py-1">Class</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                while ($row = $result->fetch_assoc()) {
+                    echo "<tr>";
+                    echo "<td class='px-2 py-1 border-r border-gray-300'>" . $row['id'] . "</td>";
+                    echo "<td class='px-2 py-1 border-r border-gray-300'>" . $row['name'] . "</td>";
+                    echo "<td class='px-2 py-1 border-r border-gray-300'>" . $row['email'] . "</td>";
+                    echo "<td class='px-2 py-1 border-r border-gray-300'>" . $row['address'] . "</td>";
+                    echo "<td class='px-2 py-1 border-r border-gray-300'>" . $row['dbirth'] . "</td>";
+                    echo "<td class='px-2 py-1'>" . $row['dclass'] . "</td>";
+                    echo "</tr>";
+                }
+                ?>
+            </tbody>
+        </table>
     </div>
     
 
