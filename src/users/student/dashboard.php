@@ -44,7 +44,7 @@
                 <i class="ml-2 fa-solid fa-chevron-down"></i>
             </div>
         </div>
-        <div class="flex-grow p-4 bg-[#fbf3d4]">
+        <div class="flex-grow p-4 bg-[#FFF5D2]">
             <h1>Dashboard</h1>
         </div>
         <footer class="p-4 bg-slate-200 shadow-custom">

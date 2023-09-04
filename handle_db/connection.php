@@ -1,11 +1,11 @@
 <?php
 try {
-    $hostmae = "localhost";
+    $hostname = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "";
+    $dbname = "pf3";
 
-    $mysqli = new mysqli($hostmae, $username, $password, $dbname);
+    $mysqli = new mysqli($hostname, $username, $password, $dbname);
 
 } catch (mysqli_sql_exception $e) {
     echo "Error: " . $e->getMessage();
