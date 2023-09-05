@@ -15,16 +15,16 @@
 
 <body class="flex">
     <nav class="flex flex-col w-40 h-screen bg-slate-300 shadow-custom">
-        <div class="flex items-center justify-center p-4 border-b border-slate-400">
+        <div class="flex items-center justify-center p-4 border-b border-[#00000050]">
             <img src="/img/logo.jpg" alt="Logo" class="w-8 h-8 mr-2 rounded-full">
             <p>University</p>
         </div>
-        <div class="p-4 border-b border-slate-400">
+        <div class="p-4 border-b border-[#00000050]">
             <p>Student</p>
             <p>Student nick</p>
         </div>
         <div class="flex-grow p-4">
-            <p class="text-sm text-center border-b border-slate-400">MENU STUDENT</p>
+            <p class="text-sm text-center">MENU STUDENT</p>
             <ul class="mt-4">
                 <li class="flex items-center mb-2">
                     <i class="w-6 mr-2 fa-solid fa-chalkboard"></i>
@@ -34,7 +34,7 @@
         </div>
     </nav>
     <div class="flex flex-col flex-grow">
-        <div class="flex items-center justify-between p-4 bg-slate-200 shadow-custom">
+        <div class="flex items-center justify-between p-4 border-b border-[#00000030] bg-slate-200 shadow-custom">
             <div class="flex items-center">
                 <i class="fa-solid fa-bars"></i>
                 <p class="ml-2">Home</p>
@@ -47,10 +47,38 @@
         <div class="flex-grow p-4 bg-[#FFF5D2]">
             <h1>Dashboard</h1>
         </div>
-        <footer class="p-4 bg-slate-200 shadow-custom">
-            Footer
+        <footer class="p-4 bg-slate-200 border-t border-[#00000030] shadow-custom">
+            <h1>Created by Felipe Messias</h1>
         </footer>
     </div>
+
+    <script>
+        const logoutIcon = document.querySelector('.fa-chevron-down');
+        let logoutBox;
+        logoutIcon.addEventListener('click', () => {
+            if (logoutBox) {
+
+                logoutBox.remove();
+                logoutBox = null;
+            } else {
+
+                logoutBox = document.createElement('div');
+                logoutBox.textContent = 'Logout';
+                logoutBox.style.position = 'absolute';
+                logoutBox.style.right = '10px';
+                logoutBox.style.top = '50px';
+                logoutBox.style.padding = '10px';
+                logoutBox.style.backgroundColor = 'white';
+                logoutBox.style.border = '1px solid black';
+                logoutBox.style.cursor = 'pointer';
+                document.body.appendChild(logoutBox);
+                logoutBox.addEventListener('click', () => {
+
+                    window.location.href = '/src/index.php';
+                });
+            }
+        });
+    </script>
 
     <script>
         const pageMap = {

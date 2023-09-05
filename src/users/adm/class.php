@@ -1,7 +1,7 @@
 <?php
 include '../../../handle_db/connection.php';
 
-$query = "SELECT class.id, class.subject as name, teacher.name as teacher FROM class JOIN teacher ON class.id = teacher.dclass";
+$query = "SELECT class.id, class.subject as class, teacher.name as teacher, teacher.id as teacher_id FROM class JOIN teacher ON class.id = teacher.dclass";
 $result = $mysqli->query($query);
 ?>
 
@@ -20,11 +20,10 @@ $result = $mysqli->query($query);
     <div class="p-4 mb-4 bg-white rounded-md shadow-md">
         <div class="flex items-center justify-between pb-2 mb-2 border-b border-gray-200">
             <p class="text-sm font-semibold">Class Informations</p>
-            <button class="px-4 py-2 font-bold text-white bg-blue-600 rounded hover:bg-blue-800">Add Class</button>
         </div>
         <div class="flex items-center justify-end">
             <label for="search" class="mr-2">Search:</label>
-            <input type="text" id="search" class="p-1 border border-gray-300 rounded-md">
+            <input type="text" id="search" class="p-1 border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none">
         </div>
         <br>
         <table class="w-full border border-gray-300 rounded-md">
@@ -41,9 +40,9 @@ $result = $mysqli->query($query);
                 while ($row = $result->fetch_assoc()) {
                     echo "<tr>";
                     echo "<td class='px-2 py-1 border-r border-gray-300'>" . $row['id'] . "</td>";
-                    echo "<td class='px-2 py-1 border-r border-gray-300'>" . $row['name'] . "</td>";
+                    echo "<td class='px-2 py-1 border-r border-gray-300'>" . $row['class'] . "</td>";
                     echo "<td class='px-2 py-1 border-r border-gray-300'>" . $row['teacher'] . "</td>";
-                    echo "<td class='px-2 py-1'><a href=''><i class='fas fa-edit'></i></a></td>";
+                    echo "<td class='px-2 py-1'><a href='class_add.php?teacher_id=" . $row['teacher_id'] . "'><i class='fas fa-edit'></i></a></td>";
                     echo "</tr>";
                 }
                 ?>

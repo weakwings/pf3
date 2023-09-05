@@ -44,23 +44,23 @@ if ($resultClassOptions) {
         </div>
         <div class="mb-4">
             <label for="name" class="block">Name:</label>
-            <input type="text" name="name" id="name" class="w-full p-1 border border-gray-300 rounded-md" required>
+            <input type="text" name="name" id="name" class="w-full p-1 border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none" required>
         </div>
         <div class="mb-4">
             <label for="email" class="block">Email:</label>
-            <input type="email" name="email" id="email" class="w-full p-1 border border-gray-300 rounded-md" required>
+            <input type="email" name="email" id="email" class="w-full p-1 border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none" required>
         </div>
         <div class="mb-4">
             <label for="psswrd" class="block">Password:</label>
-            <input type="password" name="psswrd" id="psswrd" class="w-full p-1 border border-gray-300 rounded-md">
+            <input type="password" name="psswrd" id="psswrd" class="w-full p-1 border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none">
         </div>
         <div class="mb-4">
             <label for="address" class="block">Address:</label>
-            <input type="text" name="address" id="address" class="w-full p-1 border border-gray-300 rounded-md" required>
+            <input type="text" name="address" id="address" class="w-full p-1 border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none" required>
         </div>
         <div class="mb-4">
             <label for="dbirth" class="block">Date of birth:</label>
-            <input type="date" name="dbirth" id="dbirth" class="p-1 border border-gray-300 rounded-md" required>
+            <input type="date" name="dbirth" id="dbirth" class="p-1 border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none" required>
         </div>
         <br>
         <div class="flex justify-between mb-4">

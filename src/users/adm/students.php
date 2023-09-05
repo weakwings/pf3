@@ -24,7 +24,7 @@ $result = $mysqli->query($query);
         </div>
         <div class="flex items-center justify-end">
             <label for="search" class="mr-2">Search:</label>
-            <input type="text" id="search" class="p-1 border border-gray-300 rounded-md">
+            <input type="text" id="search" class="p-1 border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none">
         </div>
         <br>
         <table class="w-full border border-gray-300 rounded-md">
@@ -49,7 +49,7 @@ $result = $mysqli->query($query);
                     echo "<td class='px-2 py-1 border-r border-gray-300'>" . $row['email'] . "</td>";
                     echo "<td class='px-2 py-1 border-r border-gray-300'>" . $row['address'] . "</td>";
                     echo "<td class='px-2 py-1 border-r border-gray-300'>" . $row['dbirth'] . "</td>";
-                    echo "<td class='px-2 py-1'><a href=''><i class='fas fa-edit'></i></a></td>";
+                    echo "<td class='px-2 py-1'><a href='student_edit.php?student_id=" . $row['id'] . "'><i class='fas fa-edit'></i></a></td>";
                     echo "</tr>";
                 }
                 ?>

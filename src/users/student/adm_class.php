@@ -32,7 +32,9 @@
                 <table class="w-full border border-gray-300 rounded-md">
                     <thead>
                         <tr>
-                            <th class="px-2 py-1 border-r border-gray-300"></th>
+                            <th class="px-2 py-1 border-r border-gray-300">
+                                
+                            </th>
                         </tr>
                     </thead>
                 </table>

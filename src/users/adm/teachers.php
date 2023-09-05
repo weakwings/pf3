@@ -24,7 +24,7 @@ $result = $mysqli->query($query);
         </div>
         <div class="flex items-center justify-end">
             <label for="search" class="mr-2">Search:</label>
-            <input type="text" id="search" class="p-1 border border-gray-300 rounded-md">
+            <input type="text" id="search" class="p-1 border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none">
         </div>
         
         
