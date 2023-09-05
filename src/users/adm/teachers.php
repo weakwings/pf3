@@ -1,7 +1,7 @@
 <?php
 include '../../../handle_db/connection.php';
 
-$query = "SELECT id, name, email, address, dbirth, dclass FROM teacher";
+$query = "SELECT teacher.id, teacher.name, teacher.email, teacher.address, teacher.dbirth, class.subject as dclass FROM teacher JOIN class ON teacher.dclass = class.id";
 $result = $mysqli->query($query);
 ?>
 
@@ -20,12 +20,15 @@ $result = $mysqli->query($query);
     <div class="p-4 mb-4 bg-white rounded-md shadow-md">
         <div class="flex items-center justify-between pb-2 mb-2 border-b border-gray-200">
             <p class="text-sm font-semibold">Teachers Informations</p>
-            <button class="px-4 py-2 font-bold text-white bg-blue-600 rounded hover:bg-blue-800">Add Teacher</button>
+            <a href="teacher_add.php" class="px-4 py-2 font-bold text-white bg-blue-600 rounded hover:bg-blue-800">Add Teacher</a>
         </div>
         <div class="flex items-center justify-end">
             <label for="search" class="mr-2">Search:</label>
             <input type="text" id="search" class="p-1 border border-gray-300 rounded-md">
         </div>
+        
+        
+        
         <br>
         <table class="w-full border border-gray-300 rounded-md">
             <thead class="bg-gray-100">

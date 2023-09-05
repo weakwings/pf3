@@ -8,10 +8,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $rawPassword = $_POST['psswrd'];
     $address = $_POST['address'];
     $dbirth = $_POST['dbirth'];
-    $dclass = $_POST['dclass'];
+    $DNI = $_POST['DNI'];
 
 
-    $checkQuery = "SELECT COUNT(*) as count FROM teacher WHERE email = '$email'";
+    $checkQuery = "SELECT COUNT(*) as count FROM student WHERE email = '$email'";
     $result = $mysqli->query($checkQuery);
     $row = $result->fetch_assoc();
 
@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $hashedPassword = password_hash($rawPassword, PASSWORD_DEFAULT);
 
 
-        $query = "INSERT INTO teacher (name, email, psswrd, address, dbirth, dclass) VALUES ('$name', '$email', '$hashedPassword', '$address', '$dbirth', '$dclass')";
+        $query = "INSERT INTO student ( DNI, name, email, psswrd, address, dbirth) VALUES ('$DNI', '$name', '$email', '$hashedPassword', '$address', '$dbirth')";
 
         if ($mysqli->query($query)) {
 
@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit();
         } else {
 
-            echo "Error adding teacher: " . $mysqli->error;
+            echo "Error adding student: " . $mysqli->error;
         }
     }
 }

@@ -1,3 +1,10 @@
+<?php
+include '../../../handle_db/connection.php';
+
+$query = "SELECT class.id, class.subject as name, teacher.name as teacher FROM class JOIN teacher ON class.id = teacher.dclass";
+$result = $mysqli->query($query);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,6 +36,18 @@
                     <th class="px-2 py-1">Action</th>
                 </tr>
             </thead>
+            <tbody>
+                <?php
+                while ($row = $result->fetch_assoc()) {
+                    echo "<tr>";
+                    echo "<td class='px-2 py-1 border-r border-gray-300'>" . $row['id'] . "</td>";
+                    echo "<td class='px-2 py-1 border-r border-gray-300'>" . $row['name'] . "</td>";
+                    echo "<td class='px-2 py-1 border-r border-gray-300'>" . $row['teacher'] . "</td>";
+                    echo "<td class='px-2 py-1'><a href=''><i class='fas fa-edit'></i></a></td>";
+                    echo "</tr>";
+                }
+                ?>
+            </tbody>
         </table>
     </div>
 

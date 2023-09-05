@@ -42,7 +42,7 @@ $result = $mysqli->query($query);
                     echo "<td class='px-2 py-1 border-r border-gray-300'>" . $i . "</td>";
                     echo "<td class='px-2 py-1 border-r border-gray-300'>" . $row['email'] . "</td>";
                     echo "<td class='px-2 py-1 border-r border-gray-300'>" . $row['permission'] . "</td>";
-                    echo "<td class='px-2 py-1'><a href='edit_permission.php?email=".$row['email']."'><i class='fas fa-edit'></i></a></td>";
+                    echo "<td class='px-2 py-1'><a href=''><i class='fas fa-edit'></i></a></td>";
                     echo "</tr>";
                     $i++;
                 }

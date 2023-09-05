@@ -65,33 +65,26 @@
     </div>
 
     <script>
+        const menuItems = document.querySelectorAll('nav ul li p');
 
-// Seleciona os itens do menu
-const menuItems = document.querySelectorAll('nav ul li p');
+        menuItems.forEach(item => {
+            item.addEventListener('click', () => {
 
-// Adiciona um evento de clique a cada item do menu
-menuItems.forEach(item => {
-    item.addEventListener('click', () => {
-        // Obtém o texto do item do menu selecionado
-        const page = item.textContent;
+                const page = item.textContent;
 
-        // Define o caminho para o arquivo.php correspondente
-        const filePath = `/src/users/adm/${page.toLowerCase()}.php`;
+                const filePath = `/src/users/adm/${page.toLowerCase()}.php`;
 
-        // Carrega o conteúdo do arquivo.php na definida na tela
-        fetch(filePath)
-            .then(response => response.text())
-            .then(content => {
-                document.querySelector('.flex-grow h1').innerHTML = content;
+                fetch(filePath)
+                    .then(response => response.text())
+                    .then(content => {
+                        document.querySelector('.flex-grow h1').innerHTML = content;
+                    });
             });
-    });
-});
-
+        });
     </script>
-    
+
     <script src="https://kit.fontawesome.com/5b8d4d0297.js" crossorigin="anonymous"></script>
 
 </body>
 
 </html>
-

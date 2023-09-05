@@ -1,3 +1,10 @@
+<?php
+include '../../../handle_db/connection.php';
+
+$query = "SELECT id, DNI, name, email, address, dbirth FROM student";
+$result = $mysqli->query($query);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +20,7 @@
     <div class="p-4 mb-4 bg-white rounded-md shadow-md">
         <div class="flex items-center justify-between pb-2 mb-2 border-b border-gray-200">
             <p class="text-sm font-semibold">Students Informations</p>
-            <button class="px-4 py-2 font-bold text-white bg-blue-600 rounded hover:bg-blue-800">Add Student</button>
+            <a href="student_add.php" class="px-4 py-2 font-bold text-white bg-blue-600 rounded hover:bg-blue-800">Add Student</a>
         </div>
         <div class="flex items-center justify-end">
             <label for="search" class="mr-2">Search:</label>
@@ -32,6 +39,21 @@
                 <th class="px-2 py-1">Action</th>
             </tr>
         </thead>
+        <tbody>
+                <?php
+                while ($row = $result->fetch_assoc()) {
+                    echo "<tr>";
+                    echo "<td class='px-2 py-1 border-r border-gray-300'>" . $row['id'] . "</td>";
+                    echo "<td class='px-2 py-1 border-r border-gray-300'>" . $row['DNI'] . "</td>";
+                    echo "<td class='px-2 py-1 border-r border-gray-300'>" . $row['name'] . "</td>";
+                    echo "<td class='px-2 py-1 border-r border-gray-300'>" . $row['email'] . "</td>";
+                    echo "<td class='px-2 py-1 border-r border-gray-300'>" . $row['address'] . "</td>";
+                    echo "<td class='px-2 py-1 border-r border-gray-300'>" . $row['dbirth'] . "</td>";
+                    echo "<td class='px-2 py-1'><a href=''><i class='fas fa-edit'></i></a></td>";
+                    echo "</tr>";
+                }
+                ?>
+            </tbody>
     </table>
     </div>
     
