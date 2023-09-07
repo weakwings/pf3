@@ -46,6 +46,7 @@ require '../../../handle_db/connection.php';
             <div class="flex items-center">
                 <p class="pr-2">User:</p>
                 <p class="text-lg hover:text-blue-700"><?php echo isset($_SESSION['user_name']) ? $_SESSION['user_name'] : 'User'; ?></p>
+                <a href='student_edit.php?student_id=" . $row['id'] . "' class="pl-4">Edit</a>
                 <a href="/handle_db/logout.php" class="pl-4 ml-2 cursor-pointer"><i class="fa-solid fa-right-from-bracket"></i></a>
             </div>
         </div>
