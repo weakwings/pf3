@@ -39,7 +39,7 @@ $result = $mysqli->query($query);
                 <?php
                 $i = 1;
                 while ($row = $result->fetch_assoc()) {
-                    echo "<tr>";
+                    echo "<tr class='text-center'>";
                     echo "<td class='px-2 py-1 border-r border-gray-300'>" . $i . "</td>";
                     echo "<td class='px-2 py-1 border-r border-gray-300'>" . $row['email'] . "</td>";
                     echo "<td class='px-2 py-1 border-r border-gray-300'>" . $row['permission'] . "</td>";

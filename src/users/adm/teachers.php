@@ -45,7 +45,7 @@ $result = $mysqli->query($query);
             <tbody>
                 <?php
                 while ($row = $result->fetch_assoc()) {
-                    echo "<tr>";
+                    echo "<tr class='text-center'>";
                     echo "<td class='px-2 py-1 border-r border-gray-300'>" . $row['id'] . "</td>";
                     echo "<td class='px-2 py-1 border-r border-gray-300'>" . $row['name'] . "</td>";
                     echo "<td class='px-2 py-1 border-r border-gray-300'>" . $row['email'] . "</td>";

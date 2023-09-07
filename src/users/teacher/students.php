@@ -38,7 +38,7 @@ $result = $mysqli->query($query);
             <tbody>
                 <?php
                 while ($row = $result->fetch_assoc()) {
-                    echo "<tr>";
+                    echo "<tr class='text-center'>";
                     echo "<td class='px-2 py-1 text-center border-r border-gray-300'>" . $row['id'] . "</td>";
                     echo "<td class='px-2 py-1 text-center border-r border-gray-300'>" . $row['student'] . "</td>";
                     echo "<td class='px-2 py-1 text-center border-r border-gray-300'>" . $row['grades'] . "</td>";
