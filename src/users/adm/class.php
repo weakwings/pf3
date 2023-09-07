@@ -26,7 +26,7 @@ $result = $mysqli->query($query);
             <input type="text" id="search" class="p-1 border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none">
         </div>
         <br>
-        <table class="w-full border border-gray-300 rounded-md">
+        <table id="search-table" class="w-full border border-gray-300 rounded-md">
             <thead class="bg-gray-100">
                 <tr>
                     <th class="px-2 py-1 border-r border-gray-300">#</th>
@@ -49,6 +49,32 @@ $result = $mysqli->query($query);
             </tbody>
         </table>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('search');
+            const searchTable = document.getElementById('search-table');
+
+            if (searchInput && searchTable) {
+                searchInput.addEventListener('input', () => {
+                    const searchTerm = searchInput.value.toLowerCase();
+
+                    for (const row of searchTable.getElementsByTagName('tr')) {
+                        const nameCell = row.querySelector('td:nth-child(2)');
+
+                        if (nameCell) {
+                            const searchName = nameCell.textContent.toLowerCase();
+                            if (searchName.indexOf(searchTerm) !== -1) {
+                                row.style.display = '';
+                            } else {
+                                row.style.display = 'none';
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    </script>
 
     <script src="https://kit.fontawesome.com/5b8d4d0297.js" crossorigin="anonymous"></script>
 </body>
