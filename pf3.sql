@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 05-Set-2023 às 14:35
+-- Tempo de geração: 07-Set-2023 às 10:53
 -- Versão do servidor: 8.0.31
 -- versão do PHP: 8.2.0
 
@@ -35,14 +35,15 @@ CREATE TABLE IF NOT EXISTS `admin` (
   `psswrd` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Extraindo dados da tabela `admin`
 --
 
 INSERT INTO `admin` (`id`, `name`, `email`, `psswrd`) VALUES
-(2, 'felipe', 'qwer@qwer', '$2y$10$5yXqP9ZvjeUiQ.OCneJE3eWaWDd3IVWllVVsb2akIxsou8.kQgu2C');
+(2, 'felipe', 'qwer@qwer', '$2y$10$5yXqP9ZvjeUiQ.OCneJE3eWaWDd3IVWllVVsb2akIxsou8.kQgu2C'),
+(4, 'beta', 'beta@beta', '$2y$10$rc5cznIJuHyB6cZ5BNrCCujbXkyZn6XUrvkiXUqcfXRYxM2VUqMke');
 
 -- --------------------------------------------------------
 
@@ -94,17 +95,19 @@ CREATE TABLE IF NOT EXISTS `student` (
   `address` varchar(255) DEFAULT NULL,
   `dbirth` date DEFAULT NULL,
   `grades` varchar(255) NOT NULL,
+  `class_sl` int NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `DNI` (`DNI`),
-  UNIQUE KEY `email` (`email`)
+  UNIQUE KEY `email` (`email`),
+  KEY `class_sl` (`class_sl`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Extraindo dados da tabela `student`
 --
 
-INSERT INTO `student` (`id`, `DNI`, `name`, `email`, `psswrd`, `address`, `dbirth`, `grades`) VALUES
-(3, '129831981', 'Felipe', 'fe@fe', '$2y$10$DdQSd4zr76lCH6IjncojReMpbKlZvsY3nri0YXd4BfnYAAWZFmtRS', 'sp', '2023-09-28', '10');
+INSERT INTO `student` (`id`, `DNI`, `name`, `email`, `psswrd`, `address`, `dbirth`, `grades`, `class_sl`) VALUES
+(3, '129831981', 'Felipe', 'fe@fe', '$2y$10$DdQSd4zr76lCH6IjncojReMpbKlZvsY3nri0YXd4BfnYAAWZFmtRS', 'sp', '2023-09-28', '10', 1);
 
 -- --------------------------------------------------------
 
@@ -130,8 +133,18 @@ CREATE TABLE IF NOT EXISTS `teacher` (
 --
 
 INSERT INTO `teacher` (`id`, `name`, `email`, `psswrd`, `address`, `dbirth`, `dclass`) VALUES
-(10, 'carlos', 'ca@ca', '$2y$10$N0f8fQel9HNOg0PWs9haOOdvfpsJjEW0KGbjm8bgzpXdfIaw3Etb2', 'raposo', '2023-09-19', '6'),
+(10, 'carlos', 'ca@ca', '$2y$10$N0f8fQel9HNOg0PWs9haOOdvfpsJjEW0KGbjm8bgzpXdfIaw3Etb2', 'raposo', '2023-09-19', '12'),
 (11, 'harold', 'qwe@qwe', '$2y$10$N.4EUTKU0oM1JkWtl.4vPuEf4gZnTp6NuPnO6nRDRyLbSBUuMk4BK', 'peru', '2023-06-14', '11');
+
+--
+-- Restrições para despejos de tabelas
+--
+
+--
+-- Limitadores para a tabela `student`
+--
+ALTER TABLE `student`
+  ADD CONSTRAINT `student_ibfk_1` FOREIGN KEY (`class_sl`) REFERENCES `class` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
