@@ -52,7 +52,7 @@ $result = $mysqli->query($query);
                     echo "<td class='px-2 py-1 border-r border-gray-300'>" . $row['dbirth'] . "</td>";
                     echo "<td class='px-2 py-1 text-center'>";
                     echo "<a href='student_edit.php?student_id=" . $row['id'] . "'><i class='pr-8 fas fa-edit'></i></a>";
-                    echo "<a href='/handle_db/delete_db.php?email=" . $row['email'] . "&del=" . $row['del'] . "'><i class='text-red-600 fas fa-trash'></i></a>";
+                    echo "<a href='/handle_db/delete_db.php?email=" . $row['email'] . "&permission=student'><i class='text-red-600 fas fa-trash'></i></a>";
                     echo "</td>";
                     echo "</tr>";
                 }

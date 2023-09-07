@@ -1,10 +1,14 @@
 <?php
 require 'connection.php';
-session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email']) && isset($_POST['psswrd'])) {
     $email = $_POST['email'];
     $psswrd = $_POST['psswrd'];
+
+    if (empty($email) || empty($psswrd)) {
+        header('Location: /index.php?error=empty');
+        exit;
+    }
 
     $query = "SELECT * FROM admin WHERE email=?";
     if ($stmt = $mysqli->prepare($query)) {
@@ -24,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email']) && isset($_PO
                 header('Location: /src/users/adm/dashboard.php');
                 exit;
             } else {
-                echo "Invalid password";
+                header('Location: /index.php?error=password');
                 exit;
             }
         }
@@ -50,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email']) && isset($_PO
                 header('Location: /src/users/student/dashboard.php');
                 exit;
             } else {
-                echo "Invalid password";
+                header('Location: /index.php?error=password');
                 exit;
             }
         }
@@ -76,7 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email']) && isset($_PO
                 header('Location: /src/users/teacher/dashboard.php');
                 exit;
             } else {
-                echo "Invalid password";
+                header('Location: /index.php?error=password');
                 exit;
             }
         } else {
@@ -88,4 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email']) && isset($_PO
     }
 
     echo "Email not found for any user type";
+} elseif (isset($_GET['error']) && $_GET['error'] === 'password') {
+    echo "Invalid password. Try again.";
 }
+?>

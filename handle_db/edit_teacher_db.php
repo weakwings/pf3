@@ -18,10 +18,10 @@ if (isset($_POST['teacher_id']) && isset($_POST['name']) && isset($_POST['email'
         if ($stmt = $mysqli->prepare($query)) {
             $stmt->bind_param("sssssii", $name, $email, $hashedPassword, $address, $dbirth, $dclass, $teacher_id);
             $stmt->execute();
-            echo "Professor atualizado com sucesso";
+            echo "Teacher updated successfully";
             $stmt->close();
         } else {
-            echo "Erro ao atualizar professor: " . $mysqli->error;
+            echo "Error updating teacher: " . $mysqli->error;
         }
     } else {
         
@@ -29,10 +29,10 @@ if (isset($_POST['teacher_id']) && isset($_POST['name']) && isset($_POST['email'
         if ($stmt = $mysqli->prepare($query)) {
             $stmt->bind_param("ssssii", $name, $email, $address, $dbirth, $dclass, $teacher_id);
             $stmt->execute();
-            echo "Professor atualizado com sucesso";
+            echo "Teacher updated successfully";
             $stmt->close();
         } else {
-            echo "Erro ao atualizar professor: " . $mysqli->error;
+            echo "Error updating teacher: " . $mysqli->error;
         }
     }
 }
