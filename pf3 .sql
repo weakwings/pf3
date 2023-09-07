@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 07-Set-2023 às 10:53
+-- Tempo de geração: 07-Set-2023 às 15:17
 -- Versão do servidor: 8.0.31
 -- versão do PHP: 8.2.0
 
@@ -100,7 +100,7 @@ CREATE TABLE IF NOT EXISTS `student` (
   UNIQUE KEY `DNI` (`DNI`),
   UNIQUE KEY `email` (`email`),
   KEY `class_sl` (`class_sl`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Extraindo dados da tabela `student`
@@ -133,18 +133,7 @@ CREATE TABLE IF NOT EXISTS `teacher` (
 --
 
 INSERT INTO `teacher` (`id`, `name`, `email`, `psswrd`, `address`, `dbirth`, `dclass`) VALUES
-(10, 'carlos', 'ca@ca', '$2y$10$N0f8fQel9HNOg0PWs9haOOdvfpsJjEW0KGbjm8bgzpXdfIaw3Etb2', 'raposo', '2023-09-19', '12'),
 (11, 'harold', 'qwe@qwe', '$2y$10$N.4EUTKU0oM1JkWtl.4vPuEf4gZnTp6NuPnO6nRDRyLbSBUuMk4BK', 'peru', '2023-06-14', '11');
-
---
--- Restrições para despejos de tabelas
---
-
---
--- Limitadores para a tabela `student`
---
-ALTER TABLE `student`
-  ADD CONSTRAINT `student_ibfk_1` FOREIGN KEY (`class_sl`) REFERENCES `class` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
