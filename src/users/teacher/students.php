@@ -15,7 +15,7 @@ $result = $mysqli->query($query);
     <title>Class</title>
 </head>
 
-<body class="p-4 bg-[#fbf3d4]">
+<body class="p-4 bg-[#FFF5D2]">
     <h1 class="mb-4 text-4xl font-semibold">Class List</h1>
     <div class="p-4 mb-4 bg-white rounded-md shadow-md">
         <div class="flex items-center justify-between pb-2 mb-2 border-b border-gray-200">
@@ -39,10 +39,10 @@ $result = $mysqli->query($query);
                 <?php
                 while ($row = $result->fetch_assoc()) {
                     echo "<tr>";
-                    echo "<td class='px-2 py-1 border-r border-gray-300'>" . $row['id'] . "</td>";
-                    echo "<td class='px-2 py-1 border-r border-gray-300'>" . $row['student'] . "</td>";
-                    echo "<td class='px-2 py-1 border-r border-gray-300'>" . $row['grades'] . "</td>";
-                    echo "<td class='px-2 py-1'><a href='students_grades.php?student_id=" . $row['id'] . "'><i class='fa-solid fa-clipboard-check'></i></a></td>";
+                    echo "<td class='px-2 py-1 text-center border-r border-gray-300'>" . $row['id'] . "</td>";
+                    echo "<td class='px-2 py-1 text-center border-r border-gray-300'>" . $row['student'] . "</td>";
+                    echo "<td class='px-2 py-1 text-center border-r border-gray-300'>" . $row['grades'] . "</td>";
+                    echo "<td class='px-2 py-1 text-center'><a href='students_grades.php?student_id=" . $row['id'] . "'><i class='fa-solid fa-clipboard-check'></i></a></td>";
                     echo "</tr>";
                 }
                 ?>

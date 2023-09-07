@@ -25,7 +25,7 @@ require '../../../handle_db/connection.php';
         </div>
         <div class="p-4 border-b border-[#00000050]">
             <p>Teacher</p>
-            <p>Teacher nick</p>
+            <p class="text-lg hover:text-blue-700"><?php echo isset($_SESSION['user_name']) ? $_SESSION['user_name'] : 'User'; ?></p>
         </div>
         <div class="flex-grow p-4">
             <p class="text-sm text-center">MENU STUDENT</p>
@@ -44,12 +44,13 @@ require '../../../handle_db/connection.php';
                 <p id="home-button" class="ml-2 cursor-pointer">Home</p>
             </div>
             <div class="flex items-center">
-                <p>Student nick</p>
+                <p class="pr-2">User:</p>
+                <p class="text-lg hover:text-blue-700"><?php echo isset($_SESSION['user_name']) ? $_SESSION['user_name'] : 'User'; ?></p>
                 <a href="/handle_db/logout.php" class="pl-4 ml-2 cursor-pointer"><i class="fa-solid fa-right-from-bracket"></i></a>
             </div>
         </div>
-        <div class="flex-grow p-4 bg-[#FFF5D2]">
-            <h1>Dashboard</h1>
+        <div class="flex-grow p-4 bg-[#FFF5D2] relative bg-center bg-no-repeat bg-contain" style="background-image: url('/img/logo.jpg')">
+            <h1>Welcome</h1>
         </div>
         <footer class="p-4 bg-slate-200 border-t border-[#00000030] shadow-custom">
             <h1>Created by Felipe Messias</h1>
@@ -72,11 +73,8 @@ require '../../../handle_db/connection.php';
 
         menuItems.forEach(item => {
             item.addEventListener('click', () => {
-
                 const page = item.textContent;
-
-                const fileName = pageMap[page];
-
+                const fileName = pageMap[page] ? pageMap[page] : page.toLowerCase();
                 const filePath = `/src/users/teacher/${fileName}.php`;
 
                 fetch(filePath)

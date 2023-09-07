@@ -28,7 +28,7 @@ if ($resultClassOptions) {
     </style>
 </head>
 
-<body class="flex items-center justify-center min-h-screen p-4 bg-[#fbf3d4]">
+<body class="flex items-center justify-center min-h-screen p-4 bg-[#FFF5D2]">
 
     <form method="POST" action="dashboard.php" class="p-4 bg-white w-[220px] shadow-custom rounded">
         <h1 class="mb-4 text-4xl font-semibold">Change the Subject</h1>

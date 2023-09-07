@@ -17,7 +17,7 @@ require '../../../handle_db/connection.php';
     </style>
 </head>
 
-<body class="flex items-center justify-center min-h-screen p-4 bg-[#fbf3d4]">
+<body class="flex items-center justify-center min-h-screen p-4 bg-[#FFF5D2]">
 
     <form method="POST" action="/handle_db/add_student_db.php" class="p-4 bg-white w-[450px] shadow-custom rounded">
         <h1 class="mb-4 text-4xl font-semibold text-center">Add Student</h1>

@@ -30,7 +30,7 @@ if (!isset($_SESSION['user_login']) || $_SESSION['user_login'] !== true) {
         </div>
         <div class="p-4 border-b border-[#00000050]">
             <p>admin</p>
-            <p>Nick</p>
+            <p class="text-lg hover:text-blue-700"><?php echo isset($_SESSION['user_name']) ? $_SESSION['user_name'] : 'User'; ?></p>
         </div>
         <div class="flex-grow p-4">
             <p class="text-sm text-center">MENU ADMINISTRATOR</p>
@@ -61,16 +61,15 @@ if (!isset($_SESSION['user_login']) || $_SESSION['user_login'] !== true) {
                 <p id="home-button" class="ml-2 cursor-pointer">Home</p>
             </div>
             <div class="flex items-center">
-                <p>Nick</p>
+                <p class="pr-2">User:</p>
+                <p class="text-lg hover:text-blue-700"><?php echo isset($_SESSION['user_name']) ? $_SESSION['user_name'] : 'User'; ?></p>
                 <a href="/handle_db/logout.php" class="pl-4 ml-2 cursor-pointer"><i class="fa-solid fa-right-from-bracket"></i></a>
             </div>
         </div>
-        <div class="flex-grow p-4 bg-[#FFF5D2] relative">
+        <div class="flex-grow p-4 bg-[#FFF5D2] relative bg-center bg-no-repeat bg-contain" style="background-image: url('/img/logo.jpg')">
             <h1>Welcome</h1>
-            <div class="absolute inset-0 flex items-center justify-center logo-container">
-                <img src="/img/logo.jpg" alt="Logo" class="max-w-full max-h-full" id="dashboard-logo">
-            </div>
         </div>
+
         <footer class="p-4 bg-slate-200 border-t border-[#00000030] shadow-custom">
             <h1>Created by Felipe Messias</h1>
         </footer>
@@ -91,8 +90,6 @@ if (!isset($_SESSION['user_login']) || $_SESSION['user_login'] !== true) {
                 const page = item.textContent;
                 const filePath = `/src/users/adm/${page.toLowerCase()}.php`;
 
-                document.getElementById('dashboard-logo').classList.add('hidden');
-
                 fetch(filePath)
                     .then(response => response.text())
                     .then(content => {
@@ -100,10 +97,6 @@ if (!isset($_SESSION['user_login']) || $_SESSION['user_login'] !== true) {
                     });
             });
         });
-
-        function showImage() {
-            document.getElementById('dashboard-logo').classList.remove('hidden');
-        }
     </script>
 
     <script src="https://kit.fontawesome.com/5b8d4d0297.js" crossorigin="anonymous"></script>

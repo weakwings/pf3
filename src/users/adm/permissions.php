@@ -15,7 +15,7 @@ $result = $mysqli->query($query);
     <title>Permissions</title>
 </head>
 
-<body class="p-4 bg-[#fbf3d4]">
+<body class="p-4 bg-[#FFF5D2]">
     <h1 class="mb-4 text-4xl font-semibold">Permissions List</h1>
     <div class="p-4 mb-4 bg-white rounded-md shadow-md">
         <div class="pb-2 mb-2 border-b border-gray-200">
