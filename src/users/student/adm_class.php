@@ -1,3 +1,7 @@
+<?php
+require '../../../handle_db/connection.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

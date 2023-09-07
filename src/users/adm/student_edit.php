@@ -1,5 +1,5 @@
 <?php
-include '../../../handle_db/connection.php';
+require '../../../handle_db/connection.php';
 
 if (isset($_GET['student_id'])) {
     $student_id = $_GET['student_id'];
@@ -65,7 +65,7 @@ if (isset($_GET['student_id'])) {
             <input type="email" name="email" id="email" class="w-full p-1 border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none" value="<?= $email ?>">
         </div>
         <div class="mb-4">
-            <label for="psswrd" class="block">Password:</label>
+            <label for="psswrd" class="block">New Password:</label>
             <input type="password" name="psswrd" id="psswrd" class="w-full p-1 border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none">
         </div>
         <div class="mb-4">

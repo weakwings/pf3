@@ -1,5 +1,5 @@
 <?php
-include '../../../handle_db/connection.php';
+require '../../../handle_db/connection.php';
 
 $queryClassOptions = "SELECT id, subject FROM class";
 $resultClassOptions = $mysqli->query($queryClassOptions);

@@ -1,5 +1,5 @@
 <?php
-include '../../../handle_db/connection.php';
+require '../../../handle_db/connection.php';
 
 $query = "SELECT teacher.id, teacher.name, teacher.email, teacher.address, teacher.dbirth, class.subject as dclass FROM teacher JOIN class ON teacher.dclass = class.id";
 $result = $mysqli->query($query);
@@ -26,9 +26,9 @@ $result = $mysqli->query($query);
             <label for="search" class="mr-2">Search:</label>
             <input type="text" id="search" class="p-1 border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none">
         </div>
-        
-        
-        
+
+
+
         <br>
         <table class="w-full border border-gray-300 rounded-md">
             <thead class="bg-gray-100">
@@ -38,7 +38,8 @@ $result = $mysqli->query($query);
                     <th class="px-2 py-1 border-r border-gray-300">Email</th>
                     <th class="px-2 py-1 border-r border-gray-300">Address</th>
                     <th class="px-2 py-1 border-r border-gray-300">Date of Birth</th>
-                    <th class="px-2 py-1">Class</th>
+                    <th class="px-2 py-1 border-r border-gray-300">Class</th>
+                    <th class="px-2 py-1">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -50,14 +51,18 @@ $result = $mysqli->query($query);
                     echo "<td class='px-2 py-1 border-r border-gray-300'>" . $row['email'] . "</td>";
                     echo "<td class='px-2 py-1 border-r border-gray-300'>" . $row['address'] . "</td>";
                     echo "<td class='px-2 py-1 border-r border-gray-300'>" . $row['dbirth'] . "</td>";
-                    echo "<td class='px-2 py-1'>" . $row['dclass'] . "</td>";
+                    echo "<td class='px-2 py-1 border-r border-gray-300'>" . $row['dclass'] . "</td>";
+                    echo "<td class='px-2 py-1 text-center'>";
+                    echo "<a href='teacher_edit.php?teacher_id=" . $row['id'] . "'><i class='pr-8 fas fa-edit'></i></a>";
+                    echo "<a href='/handle_db/delete_db.php?email=" . $row['email'] . "&del=teacher'><i class='text-red-600 fas fa-trash'></i></a>";
+                    echo "</td>";
                     echo "</tr>";
                 }
                 ?>
             </tbody>
         </table>
     </div>
-    
+
 
     <script src="https://kit.fontawesome.com/5b8d4d0297.js" crossorigin="anonymous"></script>
 </body>

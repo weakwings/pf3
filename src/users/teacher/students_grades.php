@@ -1,5 +1,5 @@
 <?php
-include '../../../handle_db/connection.php';
+require '../../../handle_db/connection.php';
 
 if (isset($_GET['student_id'])) {
     $student_id = $_GET['student_id'];

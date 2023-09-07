@@ -1,7 +1,8 @@
 <?php
-include '../../../handle_db/connection.php';
+require '../../../handle_db/connection.php';
 
-$query = "SELECT id, DNI, name, email, address, dbirth FROM student";
+$query = "SELECT id, DNI, name, email, address, dbirth, 'student' as del FROM student";
+
 $result = $mysqli->query($query);
 ?>
 
@@ -28,18 +29,18 @@ $result = $mysqli->query($query);
         </div>
         <br>
         <table class="w-full border border-gray-300 rounded-md">
-        <thead class="bg-gray-100">
-            <tr>
-                <th class="px-2 py-1 border-r border-gray-300">#</th>
-                <th class="px-2 py-1 border-r border-gray-300">DNI</th>
-                <th class="px-2 py-1 border-r border-gray-300">Name</th>
-                <th class="px-2 py-1 border-r border-gray-300">Email</th>
-                <th class="px-2 py-1 border-r border-gray-300">Address</th>
-                <th class="px-2 py-1 border-r border-gray-300">Date of Birth</th>
-                <th class="px-2 py-1">Action</th>
-            </tr>
-        </thead>
-        <tbody>
+            <thead class="bg-gray-100">
+                <tr>
+                    <th class="px-2 py-1 border-r border-gray-300">#</th>
+                    <th class="px-2 py-1 border-r border-gray-300">DNI</th>
+                    <th class="px-2 py-1 border-r border-gray-300">Name</th>
+                    <th class="px-2 py-1 border-r border-gray-300">Email</th>
+                    <th class="px-2 py-1 border-r border-gray-300">Address</th>
+                    <th class="px-2 py-1 border-r border-gray-300">Date of Birth</th>
+                    <th class="px-2 py-1">Action</th>
+                </tr>
+            </thead>
+            <tbody>
                 <?php
                 while ($row = $result->fetch_assoc()) {
                     echo "<tr>";
@@ -49,14 +50,17 @@ $result = $mysqli->query($query);
                     echo "<td class='px-2 py-1 border-r border-gray-300'>" . $row['email'] . "</td>";
                     echo "<td class='px-2 py-1 border-r border-gray-300'>" . $row['address'] . "</td>";
                     echo "<td class='px-2 py-1 border-r border-gray-300'>" . $row['dbirth'] . "</td>";
-                    echo "<td class='px-2 py-1'><a href='student_edit.php?student_id=" . $row['id'] . "'><i class='fas fa-edit'></i></a></td>";
+                    echo "<td class='px-2 py-1 text-center'>";
+                    echo "<a href='student_edit.php?student_id=" . $row['id'] . "'><i class='pr-8 fas fa-edit'></i></a>";
+                    echo "<a href='/handle_db/delete_db.php?email=" . $row['email'] . "&del=" . $row['del'] . "'><i class='text-red-600 fas fa-trash'></i></a>";
+                    echo "</td>";
                     echo "</tr>";
                 }
                 ?>
             </tbody>
-    </table>
+        </table>
     </div>
-    
+
 
     <script src="https://kit.fontawesome.com/5b8d4d0297.js" crossorigin="anonymous"></script>
 </body>

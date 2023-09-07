@@ -1,5 +1,5 @@
 <?php
-include 'connection.php';
+require 'connection.php';
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email']) && isset($_POST['psswrd'])) {
@@ -17,8 +17,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email']) && isset($_PO
             $storedPassword = $row['psswrd'];
 
             if (password_verify($psswrd, $storedPassword)) {
-                $_SESSION['usuario_logado'] = true;
-                $_SESSION['tipo_usuario'] = 'admin';
+                $_SESSION['user_login'] = true;
+                $_SESSION['user_tipe'] = 'admin';
+                $_SESSION['user_id'] = $row['id'];
+                $_SESSION['user_name'] = $row['name'];
                 header('Location: /src/users/adm/dashboard.php');
                 exit;
             } else {
@@ -41,8 +43,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email']) && isset($_PO
             $storedPassword = $row['psswrd'];
 
             if (password_verify($psswrd, $storedPassword)) {
-                $_SESSION['usuario_logado'] = true;
-                $_SESSION['tipo_usuario'] = 'student';
+                $_SESSION['user_login'] = true;
+                $_SESSION['user_tipe'] = 'student';
+                $_SESSION['user_id'] = $row['id'];
+                $_SESSION['user_name'] = $row['name'];
                 header('Location: /src/users/student/dashboard.php');
                 exit;
             } else {
@@ -65,8 +69,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email']) && isset($_PO
             $storedPassword = $row['psswrd'];
 
             if (password_verify($psswrd, $storedPassword)) {
-                $_SESSION['usuario_logado'] = true;
-                $_SESSION['tipo_usuario'] = 'teacher';
+                $_SESSION['user_login'] = true;
+                $_SESSION['user_tipe'] = 'teacher';
+                $_SESSION['user_id'] = $row['id'];
+                $_SESSION['user_name'] = $row['name'];
                 header('Location: /src/users/teacher/dashboard.php');
                 exit;
             } else {

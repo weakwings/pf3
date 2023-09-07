@@ -1,5 +1,5 @@
 <?php
-include '../../../handle_db/connection.php';
+require '../../../handle_db/connection.php';
 
 $query = "SELECT class.id, class.subject as class, teacher.name as teacher, teacher.id as teacher_id FROM class JOIN teacher ON class.id = teacher.dclass";
 $result = $mysqli->query($query);
@@ -42,7 +42,7 @@ $result = $mysqli->query($query);
                     echo "<td class='px-2 py-1 border-r border-gray-300'>" . $row['id'] . "</td>";
                     echo "<td class='px-2 py-1 border-r border-gray-300'>" . $row['class'] . "</td>";
                     echo "<td class='px-2 py-1 border-r border-gray-300'>" . $row['teacher'] . "</td>";
-                    echo "<td class='px-2 py-1'><a href='class_add.php?teacher_id=" . $row['teacher_id'] . "'><i class='fas fa-edit'></i></a></td>";
+                    echo "<td class='px-2 py-1 text-center'><a href='class_add.php?teacher_id=" . $row['teacher_id'] . "'><i class='fas fa-edit'></i></a></td>";
                     echo "</tr>";
                 }
                 ?>

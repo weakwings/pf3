@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+
 try {
     $hostname = "localhost";
     $username = "root";

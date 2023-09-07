@@ -1,5 +1,5 @@
 <?php
-include '../../../handle_db/connection.php';
+require '../../../handle_db/connection.php';
 
 $query = "SELECT student.id, student.name as student, student.grades as grades FROM student";
 $result = $mysqli->query($query);

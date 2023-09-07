@@ -1,9 +1,10 @@
 <?php
-include '../../../handle_db/connection.php';
+require '../../../handle_db/connection.php';
 
 $query = "SELECT email, 'admin' as permission FROM admin UNION SELECT email, 'student' as permission FROM student UNION SELECT email, 'teacher' as permission FROM teacher";
 $result = $mysqli->query($query);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,9 +43,9 @@ $result = $mysqli->query($query);
                     echo "<td class='px-2 py-1 border-r border-gray-300'>" . $i . "</td>";
                     echo "<td class='px-2 py-1 border-r border-gray-300'>" . $row['email'] . "</td>";
                     echo "<td class='px-2 py-1 border-r border-gray-300'>" . $row['permission'] . "</td>";
-                    echo "<td class='px-2 py-1'>";
+                    echo "<td class='px-2 py-1 text-center'>";
                     echo "<a href=''><i class='pr-8 fas fa-edit'></i></a>";
-                    echo "<a href='/handle_db/delete_db.php?email=" . $row['email'] . "&permission=" . $row['permission'] . "'><i class='fas fa-trash'></i></a>";
+                    echo "<a href='/handle_db/delete_db.php?email=" . $row['email'] . "&permission=" . $row['permission'] . "'><i class='text-red-600 fas fa-trash'></i></a>";
                     echo "</td>";
                     echo "</tr>";
                     $i++;

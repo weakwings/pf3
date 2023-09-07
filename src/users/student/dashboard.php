@@ -1,3 +1,7 @@
+<?php
+require '../../../handle_db/connection.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +17,7 @@
     </style>
 </head>
 
-<body class="flex">
+<body class="flex font-custom">
     <nav class="flex flex-col w-40 h-screen bg-slate-300 shadow-custom">
         <div class="flex items-center justify-center p-4 border-b border-[#00000050]">
             <img src="/img/logo.jpg" alt="Logo" class="w-8 h-8 mr-2 rounded-full">
@@ -37,11 +41,11 @@
         <div class="flex items-center justify-between p-4 border-b border-[#00000030] bg-slate-200 shadow-custom">
             <div class="flex items-center">
                 <i class="fa-solid fa-bars"></i>
-                <p class="ml-2">Home</p>
+                <p id="home-button" class="ml-2 cursor-pointer">Home</p>
             </div>
             <div class="flex items-center">
                 <p>Student nick</p>
-                <i class="ml-2 fa-solid fa-chevron-down"></i>
+                <a href="/handle_db/logout.php" class="pl-4 ml-2 cursor-pointer"><i class="fa-solid fa-right-from-bracket"></i></a>
             </div>
         </div>
         <div class="flex-grow p-4 bg-[#FFF5D2]">
@@ -53,30 +57,9 @@
     </div>
 
     <script>
-        const logoutIcon = document.querySelector('.fa-chevron-down');
-        let logoutBox;
-        logoutIcon.addEventListener('click', () => {
-            if (logoutBox) {
-
-                logoutBox.remove();
-                logoutBox = null;
-            } else {
-
-                logoutBox = document.createElement('div');
-                logoutBox.textContent = 'Logout';
-                logoutBox.style.position = 'absolute';
-                logoutBox.style.right = '10px';
-                logoutBox.style.top = '50px';
-                logoutBox.style.padding = '10px';
-                logoutBox.style.backgroundColor = 'white';
-                logoutBox.style.border = '1px solid black';
-                logoutBox.style.cursor = 'pointer';
-                document.body.appendChild(logoutBox);
-                logoutBox.addEventListener('click', () => {
-
-                    window.location.href = '/src/index.php';
-                });
-            }
+        const homeButton = document.querySelector('#home-button');
+        homeButton.addEventListener('click', () => {
+            location.reload();
         });
     </script>
 
